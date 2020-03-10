@@ -1,16 +1,18 @@
 const express = require('express');
 const connectDB = require('./config/db');
 
-// App
+// App 
 const app = express();
 
 // Database
 connectDB();
 
 // Middlewares
-app.get('/', (req, res, next) => {
-    res.send('Hello World');
-});
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// Routes
+app.use('/auth', require('./routes/auth'));
 
 // Port
 const PORT = process.env.PORT || 5000;
