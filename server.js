@@ -10,6 +10,7 @@ connectDB();
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+const requireAuth = require('./middlewares/requireAuth');
 
 // Routes
 app.use('/auth', require('./routes/auth'));
