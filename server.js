@@ -10,10 +10,10 @@ connectDB();
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-const requireAuth = require('./middlewares/requireAuth');
 
 // Routes
 app.use('/auth', require('./routes/auth'));
+app.use('/', require('./routes/tracks'));
 
 // Port
 const PORT = process.env.PORT || 5000;
